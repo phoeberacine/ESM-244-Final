@@ -1,0 +1,86 @@
+---
+title: "ESM 244 Assignment 2"
+subtitle: "Parameter Estimation and Bootstrapping"
+author: "Phoebe Racine"
+date: "February 20, 2018"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r library and Dataset, include = FALSE}
+library(tidyverse)
+fish_catch <- read_csv("~/Winter 2018 Classes/ESM 244/fish_catch.csv")
+ca_pop <- read_csv("~/Winter 2018 Classes/ESM 244/ca_pop.csv")
+ca_pest <- read_csv("~/Winter 2018 Classes/ESM 244/ca_pest.csv")
+
+```
+
+
+##Task 3: Parameter Estimation - Wild Fish Catch
+Source: Wild fish catch and aquaculture production, compiled by Earth Policy Institute with 1950-2010 from U.N. Food and Agriculture Organization (FAO), Global Capture Production and Global Aquaculture
+Production, electronic databases, at www.fao.org/fishery/topic/16140/en, updated March 2012; estimates for 2011 and projections for 2012 from FAO, Food Outlook (Rome: November 2012), p. 10.
+- Download the data fish_catch.csv from GauchoSpace
+- Find an equation with parameters estimated by nonlinear least squares for the increase in wild fish catch from 1950 - 2012. Hint: You might want to set 1950 = 0 (i.e., create a new column with years starting at 0, instead of value 1950, and use those values for your model.)
+- Create a scatterplot graph of the data, with the predictive line based on the estimated parameters
+What you will submit for this task:
+(1) The final equation (with estimated parameters from NLS) describing the increase in wild fish catch
+(2) Your finalized graph of the original data + predicted catch values based on the NLS parameter estimates. Include a figure caption.
+```{r}
+## Need to rows 1-4 and 68 onwards
+
+
+
+```
+
+
+##Task 4: Bootstrapped Confidence Interval for Proportions
+The following data are from the 2014 UCSB Campus Climate Project Final Report (prepared by Rankin & Associates Consulting, available at http://campusclimate.ucop.edu/_common/files/pdf-climate/ucsb-fullreport.
+pdf).
+In the study, 22 of 36 surveyed UCSB community members (61%) identifying as genderqueer responded that
+they had personally experienced "exclusionary, offensive, hostile or intimidating conduct" (compared to 26%
+and 19% for those identifying as women and men, respectively).
+Create a vector reflecting the collected survey data, then find the bootstrapped 95% confidence interval for
+the proportion of genderqueer individuals experiencing exclusionary conduct based on the 2014 UCSB survey data.
+Hint: this will require you to create a function that calculates the proportion of a specified outcome for each bootstrap sample.
+What you will submit for this task:
+(1) All of your code for Task 4 (preparing and knitting your assignment using RMarkdown would make this easy, but you can copy and paste into another editor if you want to.)
+(2) The sampling distribution (a histogram) of bootstrapped proportions, finalized (formatting, labels, and appearance matters). Include a figure caption.
+(3) A final statement describing the bootstrapped CI that would be suitable for publication.
+```{r}
+
+
+
+```
+**Final Statement**
+
+##Task 5: RProjects, RMarkdown, Data Wrangling and ggplot
+- Download files ca_pest.csv (California pesticide application data by county) and ca_pop.csv (California
+population and income data by county) from GauchoSpace.
+Data sources:
+. Pesticide data: 2014 CA pesticide application (by county) from the California Department of Pesticide Regulation (accessed at http://www.cdpr.ca.gov/docs/pur/pur14rep/14_pur.htm)
+. California population & income data: U.S. Census Bureau. American Community Survey, 2010- 2014 American Community Survey 5-Year Estimates
+Column information:
+County: County name
+PestPounds: Pounds of chemical active ingredient applied by county (annual, 2014)
+StateRank: Statewide ranking by county (by pesticide amount applied, 1 = high)
+CountyArea: County area (square miles)
+Population: County population (based on 2010 - 2014 census data)
+PCIncome: Per capita income
+MedHouseIncome: Median household income ($)
+MedFamilyIncome: Median family income ($)
+a. Create a new project in R
+b. Copy the data files into the folder where you created the new project - the files should then show up in your working directory in RStudio
+c. Create a new RMarkdown file (in the project) in which you:
+d. Load the tidyverse
+e. Load the two datasets (remember, if they're in the working directory, you don't need the whole pathway in the read_csv function)
+f. Merge the two data frames by matching character strings in the County columns
+g. Create a new column for pesticide applied (pounds) per square mile
+h. Sort the new data frame from highest to lowest by the pesticide (pounds) per square mile column you created in (g)
+i. Keep only the columns for: county name, pesticide applied per square mile, median family income and population
+j. Create a finalized bubble plot of median household income versus pesticide application per square mile, with the size of the 'bubbles' based on county population. Add a visual line of best fit (use geom_smooth, without an error ribbon - you do not need to actually find the model equation for this assignment). Add a label (county name) to the notable outlier on the graph. Include a figure caption.
+What you will submit for this task:
+(1) All of the code you wrote in your markdown document for Task 5 parts (d) - (j). The output for each line should not be included (i.e., if knitting in markdown use results = "hide" and/or message = FALSE in the code chunk header to suppress outputs as needed).
+(2) Your finalized bubble plot, with a figure caption
